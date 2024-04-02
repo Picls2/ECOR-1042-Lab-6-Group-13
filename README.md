@@ -11,7 +11,7 @@ Nicholas Dorscht
 - `numpy`
 - Python 3.12.X
 ## Installation
-Unzip the project file and run the file in Python.
+Unzip the project file and run the `text_UI.py` in the Python shell.
 ## Usage
 [Video_Link_Here]
 ## Credits
