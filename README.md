@@ -1,11 +1,11 @@
-# Project Title
+# ECOR 1042 Final Project
 April 9 2024 \
 _Software name_ 1.0.0 \
 Nicholas Dorscht  
 &nbsp; E-mail: nicholasdorscht@cmail.carleton.ca
 
 ## Project Description
-[Project_Title_Here] is an shell-based application that allows the user to load in a data set and sort it in either ascending or descending order. They can then either generate a polynomial that represents the line of best fit for the data or render a histogram to visualize the data.
+ECOR 1042 Final Project is an shell-based application that allows the user to load in a data set and sort it in either ascending or descending order. They can then either generate a polynomial that represents the line of best fit for the data or render a histogram to visualize the data.
 ## Dependancies
 - `matplotlib.pyploy`
 - `numpy`
