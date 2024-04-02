@@ -37,6 +37,7 @@ def curve_fit(characters: list[dict], compared_trait: str, deg: int) -> str :
         else :
             trait_values[character[compared_trait]] = [character["Health"]]
     
+
     # Calculate average health for each trait value
     for trait, health in trait_values.items() :
         trait_values[trait] = sum(health) / len(health)
