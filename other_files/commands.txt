@@ -1,0 +1,5 @@
+l;./characters-mat.csv;Occupation;AT
+s;Agility;A;n
+c;Agility;5
+h;Agility
+e
