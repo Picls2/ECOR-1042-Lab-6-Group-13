@@ -3,62 +3,54 @@
 # Remember to include docstring and type annotations for your functions
 
 # Update "" with your name (e.g., Cristina Ruiz Martin)
-__author__ = "Nicholas Dorscht"
+__author__ = "Adeyemi Oluwafolafunmi"
 
 # Update "" with your student number (e.g., 100100100)
-__student_number__ = "101298132"
+__student_number__ = "101321952"
 
 # Update "" with your team (e.g. T-102, use the notation provided in the example)
-__team__ = "T-013"
+__team__ = "T-13"
 
 #==========================================#
-
-import numpy as np
-import matplotlib.pyplot as plt
 # Place your histogram function after this line
-def histogram(characters: list[dict], atr: str) -> float :
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def histogram(data: list[dict], cat: str) -> float:
+    """ Returns a histogram of a specified key, given a list of dictionaries.
+    Preconditions: type is a key in the dictionary.
+    >>> histogram([{'Occupation': 'EB','Armor': 11}, {'Occupation': 'H', 'Armor': 15},{'Occupation': 'EB', 'Armor': 11}, {'Occupation': 'H', 'Armor': 12}], "Occupation")
+    -1
+    >>> histogram([{'Occupation': 'EB','Armor': 15}, {'Occupation': 'H', 'Armor': 10}, {'Occupation': 'EB', 'Armor': 11}, {'Occupation': 'H', 'Armor': 12}], "Armor")
+    15
+    >>> histogram([{'Occupation': 'EB','Health': 11}, {'Occupation': 'H', 'Health': 14}, {'Occupation': 'EB', 'Health': 13}, {'Occupation': 'H', 'Health': 30}], "Health")
+    30
     """
-    """
-    
-    graph_data = {}
-    # Check attribute type
-    if isinstance(characters[0][atr], str) :
-        
-        # Find amount in each type
-        
-        for character in characters :
-            if character[atr] in graph_data :
-                graph_data[character[atr]] += 1
-            else :
-                graph_data[character[atr]] = 1
-        print(graph_data)
-        code = -1
-    elif isinstance(characters[0][atr], int) or isinstance(characters[0][atr], float) :
-        
-        for character in characters :
-            if character[atr] in graph_data :
-                graph_data[character[atr]] += 1
-            else :
-                graph_data[character[atr]] = 1
-        
-        # Make 20 equal bins
-        full_x_range = np.linspace(0, max(list(graph_data.keys())), 20)
-        
-        for num in full_x_range :
-            graph_data.setdefault(round(num), 0)
-        
-        code = max(list(graph_data.keys()))
-        
-    
-    # Create chart
-    
-    fig = plt.figure()
-    plt.title(f"Number of Characters With Each {atr}")
-    plt.xlabel(atr)
-    plt.ylabel("# of Characters")
-    plt.bar(list(graph_data.keys()), list(graph_data.values()), 1)
+    values = []
+    strlist = []
+    top = 0
+    answer = 0
+    for i in data:
+        if type(i[cat]) == str:
+            values.append(len(i[cat]))
+            strlist.append(i[cat])
+            answer = -1
+        else:
+            values.append(i[cat])
+            answer = max(values)
+            fullrange = np.linspace(0, answer, 20)
+
+    top = max(values)
+
+    fig1 = plt.figure()
+    plt.title("Histogram of " + cat)
+    plt.xlabel(cat)
+    plt.ylabel("y values")
+    plt.bar(values, values, 1)
     plt.show()
 
-    return code
+    return answer
+
 # Do NOT include a main script in your submission
 
