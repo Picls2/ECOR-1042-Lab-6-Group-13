@@ -45,7 +45,7 @@ def histogram(characters: list[dict], atr: str) -> float :
         full_x_range = np.linspace(0, max(list(graph_data.keys())), 20)
         
         for num in full_x_range :
-            graph_data.setdefault(round(num, 2), 0)
+            graph_data.setdefault(round(num), 0)
         
         code = max(list(graph_data.keys()))
         
