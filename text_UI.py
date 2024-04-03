@@ -111,7 +111,7 @@ while True:
         else:
             attribute_value = input("Please enter the value of the attribute: ") #get attribute value 
         
-        if attribute != ('Occupation' or 'Weapon'): #Check wether the attribute value will have a string value, if not convert input to a int 
+        if attribute != ('Occupation' and 'Weapon' and 'All'): #Check wether the attribute value will have a string value, if not convert input to a int 
             attribute_value = int(attribute_value) 
             
         user_data = load_data(file, attribute, attribute_value) #Call load data and store to user data
@@ -122,12 +122,12 @@ while True:
    
     elif user_input == 's': #Sorting 
         
-        valid_attribute = ['Agility', 'Armour', 'Intelligence', 'Health'] #Valid inputs for sorting 
+        valid_attribute = ['Agility', 'Armor', 'Intelligence', 'Health'] #Valid inputs for sorting 
         valid_order = ['A', 'D'] #valid attributes for order 
         
         value = True 
         while value: #Check if valid input for desired attribute 
-            sort_attributes = input("Please enter the attribute you want to use for sorting:\n'Agility', 'Armour', 'Intelligence', 'Health': ")   
+            sort_attributes = input("Please enter the attribute you want to use for sorting:\n'Agility', 'Armor', 'Intelligence', 'Health': ")   
             
             if sort_attributes in valid_attribute: #Check if in valid input list 
                 value = False
@@ -143,7 +143,7 @@ while True:
                 
         try: #Try to execute sort data, but if its not able to its becuase the data wasnt loaded first 
                 
-            sort_data(user_data, order, attribute)
+            sort_data(user_data, order, sort_attributes)
             display_data = input("Data sorted. Do you want to display the data?: ")
             
         except: #Data was not loaded first 
