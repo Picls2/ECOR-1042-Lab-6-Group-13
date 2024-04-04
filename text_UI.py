@@ -14,32 +14,7 @@ __team__ = "T-013"
 from histogram import  histogram
 from curve_fit import curve_fit
 from load_data import load_data, calculate_health
-
-def sort_data(character_list: list[dict], order: str, attribute: str) -> None :
-    switch = True
-    if order == 'A':
-        while switch:
-            switch = False
-            for i in range(len(character_list) - 1):
-                
-                    if character_list[i][attribute] > character_list[(i + 1)][attribute]:
-                        reorder = character_list[i]
-                        character_list[i] = character_list[i + 1]
-                        character_list[i + 1] = reorder
-                        switch = True
-                            
-    if order == 'D':
-        while switch:
-            switch = False
-            for i in range(len(character_list) - 1):
-                    if character_list[i][attribute] < character_list[(i + 1)][attribute]:
-                        
-                        reorder = character_list[i]
-                        character_list[i] = character_list[i + 1]
-                        character_list[i + 1] = reorder
-                        switch = True
-
-
+from sort import sort
 
 while True: 
     valid_attributes = ["Occupation", "Strength", "Luck", "Weapon", "All"]
@@ -48,7 +23,7 @@ while True:
     if restart:
         restart = False #Will be set back to true of user makes error
     
-        print("The available commands are: \nL)\nS)\nC)\nH)\nE)\n") #Display the user interface options 
+        print("The available commands are: \nLoad Data)\nS)ort Data\nC)urve fit\nH)istogram\nE)exit\n") #Display the user interface options 
         user_input = input("Please type your command: ") #take initial user command 
         user_input = user_input.lower() #make user_input lower case
         
@@ -100,7 +75,7 @@ while True:
                 
         try: #Try to execute sort data, but if its not able to its becuase the data wasnt loaded first 
                 
-            sort_data(user_data, order, sort_attributes)
+            sort(user_data, order, sort_attributes)
             display_data = input("Data sorted. Do you want to display the data?: ")
             
         except: #Data was not loaded first 
