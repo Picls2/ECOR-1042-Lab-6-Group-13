@@ -23,7 +23,7 @@ while True:
     if restart:
         restart = False #Will be set back to true of user makes error
     
-        print("The available commands are: \nLoad Data)\nS)ort Data\nC)urve fit\nH)istogram\nE)exit\n") #Display the user interface options 
+        print("The available commands are: \nL)oad Data\nS)ort Data\nC)urve fit\nH)istogram\nE)exit\n") #Display the user interface options 
         user_input = input("Please type your command: ") #take initial user command 
         user_input = user_input.lower() #make user_input lower case
         
