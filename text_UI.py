@@ -13,47 +13,7 @@ __team__ = "T-013"
 
 from histogram import  histogram
 from curve_fit import curve_fit
-
-
-
-def load_data(file_name: str, attribute: str, attribute_value) -> list[dict]:
-    file = open(file_name, 'r')
-    
-    first_line = True
-    result = []
-    line_headers = []
-    valid_attributes = ["Occupation", "Strength", "Agility", "Stamina", "Personality", "Intelligence", "Luck", "Armor", "Weapon", "All"]
-    
-    if attribute in valid_attributes : 
-        for line in file:
-            line = line.strip().split(",")
-            if first_line:
-                first_line = False
-                line_headers = line
-            else :
-                character = {}
-                character[line_headers[0]] = line[0]
-                character[line_headers[1]] = int(line[1])
-                character[line_headers[2]] = int(line[2])
-                character[line_headers[3]] = int(line[3])
-                character[line_headers[4]] = int(line[4])
-                character[line_headers[5]] = int(line[5])
-                character[line_headers[6]] = float(line[6])
-                character[line_headers[7]] = int(line[7])
-                character[line_headers[8]] = line[8]
-                
-                health = (character["Strength"] + character["Agility"] + character["Stamina"] + character["Personality"] +
-                    character["Intelligence"]) + (character["Armor"] ** 2 * character["Luck"])
-
-                character["Health"] = health
-                
-                # Check if it should be added to list
-                if attribute == "All" or character[attribute] == attribute_value :
-                    result.append(character)
-    else :
-        return []
-   
-    return result
+from load_data import load_data, calculate_health
 
 def sort_data(character_list: list[dict], order: str, attribute: str) -> None :
     switch = True
@@ -82,7 +42,7 @@ def sort_data(character_list: list[dict], order: str, attribute: str) -> None :
 
 
 while True: 
-    valid_attributes = ["Occupation", "Strength", "Agility", "Stamina", "Personality", "Intelligence", "Luck", "Armor", "Weapon", "All"]
+    valid_attributes = ["Occupation", "Strength", "Luck", "Weapon", "All"]
     
     restart = True 
     if restart:
@@ -110,11 +70,8 @@ while True:
             attribute_value = 'All'
         else:
             attribute_value = input("Please enter the value of the attribute: ") #get attribute value 
-        
-        if attribute != ('Occupation' and 'Weapon' and 'All'): #Check wether the attribute value will have a string value, if not convert input to a int 
-            attribute_value = int(attribute_value) 
             
-        user_data = load_data(file, attribute, attribute_value) #Call load data and store to user data
+        user_data = calculate_health(load_data(file, (attribute, attribute_value))) #Call load data and calculate_health and store to user data
               
         print('Data loaded') 
               
@@ -177,7 +134,7 @@ while True:
     
     
     elif user_input == 'h': #histogram
-        
+        valid_attributes = ["Occupation", "Strength", "Agility", "Stamina", "Personality", "Intelligence", "Luck", "Armor", "Weapon"]
         value = True
         while value: #check if valid input 
             attribute = input("Please enter the attribute you want to use for plotting: ")
