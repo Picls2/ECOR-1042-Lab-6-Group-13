@@ -1,33 +1,49 @@
 # ECOR 1042 Final Project
+
 April 9 2024 \
 _Software name_ 1.0.0 \
 Nicholas Dorscht  
 &nbsp; E-mail: nicholasdorscht@cmail.carleton.ca
 
 ## Project Description
+
 ECOR 1042 Final Project is an shell-based application that allows the user to load in a data set and sort it in either ascending or descending order. They can then either generate a polynomial that represents the line of best fit for the data or render a histogram to visualize the data.
+
 ## Dependancies
+
 - `matplotlib.pyploy`
 - `numpy`
 - Python 3.12.X
-## Installation
-Unzip the project file and run the `text_UI.py` in the Python shell.
-## Usage
-[Video_Link_Here]
-## Credits
-**Nicholas Dorscht:** 
-- README.md
-- curve_fit.py 
 
-**Evan Mallot:** 
-- text_UI.py 
+## Installation
+
+Unzip the project file and run the `text_UI.py` in the Python shell.
+
+## Usage
+
+See Data Video.mp4
+
+## Credits
+
+**Nicholas Dorscht:**
+
+- README.md
+- curve_fit.py
+
+**Evan Mallot:**
+
+- text_UI.py
 
 **Oluwafolafunmi Adeyemi**
+
 - histogram.py
 
 **Andy Muka**
+
 - batch_UI.py
+
 ## Licence
+
 MIT License
 
 Copyright (c) 2024 Nicholas Dorscht, Andy Muka, Evan Mallot & Oluwafolafunmi Adeyemi

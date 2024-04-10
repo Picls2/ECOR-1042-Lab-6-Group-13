@@ -91,14 +91,12 @@ while True:
         valid_attributes = ["Occupation", "Strength", "Agility", "Stamina", "Personality", "Intelligence", "Luck", "Armor", "Weapon"]
         
         
-        value = True
-        while value: #Check if valid input 
+        attribute = input("Please enter the attribute you want to use to find the best fit for health: ")
+        
+        while not(attribute in valid_attributes): #Check if valid input 
+            print('Invalid input')
             attribute = input("Please enter the attribute you want to use to find the best fit for health: ")
-            
-            if attribute in valid_attributes:
-                value = False 
-            else:
-                print('Invalid input')
+        
         try: #see if degree is an int 
             degree = int(input("Please enter the order of the polynomial to be fitted: "))
         except:
